@@ -1,12 +1,12 @@
 #!groovy
 pipeline {
   agent {
-    docker { image 'anapsix/alpine-java' }
+    docker { image 'node:16-alpine' }
   }
   stages {
-    stage('Maven Install') {
+    stage('Test') {
       steps {
-        sh 'mvn clean install'
+        sh 'node --version'
       }
     }
   }
