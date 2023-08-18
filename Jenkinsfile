@@ -1,6 +1,8 @@
 #!groovy
 pipeline {
-  agent none
+  agent {
+    docker { image 'anapsix/alpine-java' }
+  }
   stages {
     stage('Maven Install') {
       steps {
