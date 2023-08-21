@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Back-end') {
       agent {
-        any { image 'maven:3.8.3-openjdk-17' }
+        docker { image 'maven:3.9.3-eclipse-temurin-17-alpine' }
       }
       steps {
         sh '''
@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Front-end') {
       agent {
-        any { image 'node:16-alpine' }
+        docker { image 'node:16-alpine' }
       }
       steps {
         sh 'node --version'
